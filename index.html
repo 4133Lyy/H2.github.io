@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework</title>
+    <link rel = "stylesheet" href = "css/base.css">
+    <link rel = "stylesheet" href = "css/index.css">
+</head>
+<body>
+    <!-- 头部 -->
+    <div class = "header" >
+        <div class = "wrapper">
+            <!--导航-->
+            <div class = "nav">
+                <ul>
+                    <li><a href = "#"  >首页</a></li>
+                    <li><a href = "#"  >个人信息</a></li>
+                </ul>
+            </div>
+            <!--搜索-->
+            <div class = "search">
+                <input type = "text" placeholder = "请输入关键字">
+                <a href = "#"></a>
+            </div>
+            <!--用户-->
+            <div class = "user">
+                <a href = "#">
+                    <span>202212303073廖燕燕</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- 首页 -->
+    <div class = "homepage" >
+        <div class = "banner">
+            <div class = "left">
+                <ul>
+                    <li><a href="#"  >第一章</a></li>
+                    <li><a href="#">第二章</a></li>
+                    <li><a href="#" class = "A">第三章</a></li>
+                    <li><a href="#">第四章</a></li>
+                    <li><a href="#">第五章</a></li>
+                    <li><a href="#">第六章</a></li>
+                    <li><a href="#">第七章</a></li>
+                    <li><a href="#">第八章</a></li>
+                    <li><a href="#">第九章</a></li>
+                    <li><a href="#">第十章</a></li>
+                  </ul>
+            </div>
+            <div class = "welcome">
+                <p>
+      <h1>1.jsp有哪些内置对象,其用途和存取范围又是怎样的？</h1>
+	jsp共有以下9个内置对象:<br>
+    1.request  客户端请求,此请求会包含GET/POST请求的参数<br>
+    2.response  网页传回客户端的回应<br>
+    3.pageContext  网页的属性是在这里管理<br>
+    4.session  请求有关的会话期<br>
+    5.application  servlet正在执行的内容<br>
+    6.out  用来传送回应的输出<br>
+    7.config  servlet的架构部分<br>
+    8.page  jsp页面网页本身<br>
+    9.exception  针对错误网页,未捕捉的例外<br>
+
+用途：
+request表示HttpServletRequest对象。它包含了有关浏览器请求的信息,并且提供了几个用于获取cookie,header和session数据的有用的方法。<br>
+response表示HttpServletResponse对象,并提供了几个用于设置送回浏览器的响应的方法(如cookies,头信息等)。<br>
+out对象是javax.jsp.JspWriter的一个实例,并提供了几个方法使你能用于向浏览器回送输出结果。<br>
+pageContext表示一个javax.servlet.jsp.PageContext对象,它是用于方便存取各种范围的名字空间,servlet相关的对象API,并且包装了通用的servlet相关功能的方法。<br>
+session表示一个请求的javax.servlet.http.HttpSession对象,Session<br>
+可以存储用户的状态信息。<br>
+application表示一个javax.servlet.ServletContext对象,这有助于查询有关servlet引擎和servlet环境的信息。<br>
+config表示一个javax.servlet.ServletConfig对象,该对象用于存取servlet实例的初始化参数。<br>
+page表示从该页面产生的一个servlet实例。<br>
+<h1>2.依照先后顺序，JSP生命周期分为那些阶段？</h1>
+	（1）.客户端第一次发出请求访问JSP文件<br>
+（2）.JSP容器先将JSP文件转化成一个java源文件，在转换过程中，如果发现JSP文件中存在任何语法错误，则中断转换过程，并返回错误信息。<br>
+（3）.产生Servlet源文件之后，Servlet容器就可以将他编译成Servlet类文件，然后由“类载入器”将Servlet类文件载入Servlet容器的JVM<br>
+（4）成功载入Servlet类文件之后，Servlet容器将会建立一个Servlet实体，然后运行jspinit()方法，进入JSP初始化程序<br>
+（5）每当用户送出JSP请求时，Servlet容器将会调用_jspService()，并且传入request与response对象。<br>
+（6）如果Servlet容器想要移除某个JSP所产生的实体，则将调用其jspDestrong（）
+方法，并清楚相关的系统资源。<br>
+<h1>3.在JSP内使用Declare Tag（<%! %>）与Script Tag（<% %>）声明的的变量有何不同？</h1>
+	Script Tag（<% %>）声明的变量是JSP页面的局部变量，调用JSP Scriptlets时，会为局部变量分配内存空间，调用结束后，释放局部变量占有的内存空间。
+<br>
+Declare Tag（<%! %>）中定义的属性是成员属性，相当于类的属性；<%! %>中定义的方法相当于全局的方法，也相当与类中的方法。<br>
+
+	</p>
+<h1>4.JSP的include指令元素和<xmp><jsp:include></xmp>动作元素有何异同？</h1>
+	JSP可以通过include指令来包含其它文件。被包含的文件可以是JSP文件、HTML文件或文本文件。包含的文件就好像是该JSP文件的一部分,会被同时编译执行。
+<br>
+<jsp:include>用于在页面运行时引入一个静态或动态的页面,也称为动态包含。当容器JSP页面翻译成java文件时,并不会把JSP页面中动作指令include指定的文件与原JSP页面合并成一个新页面，而是告诉java解释器，这个文件在JSP运行时才会被处理。如果包含的文件是普通的文本文件，就将文件的内容发给客户端，由客户端负责显示，如果包含的文件是JSP文件，则JSP容器执行这个文件，然后将执行结果发送到客户端，客户端负责显示这些结果。<br>
+<h1>5.Page指令包含的常用属性有哪些？如何使用？</h1>
+<table border = "1px" cellspacing = "0" width = "1200px">
+	<tr>
+		<th>属性名称</th>
+		<th>描述</th>
+	</tr>
+	<tr>
+		<td>language</td>
+		<td>定义本页面的脚本语言类型，默认是java</td>
+	</tr>
+	<tr>
+		<td>import</td>
+		<td>指定导入的java软件包或类名列表</td>
+	</tr>
+	<tr>
+		<td>pageEncoding</td>
+		<td>定义本页面的字符编码</td>
+	</tr>
+	<tr>
+		<td>contentType</td>
+		<td>指定MIME类型和JSP页面响应时的编码方式，默认为text/html；charset=ISO8859-1</td>
+	</tr>
+	<tr>
+		<td>session</td>
+		<td>指定JSP页面中是否使用session对象，默认为true</td>
+	</tr>
+	<tr>
+		<td>isErrorPage</td>
+		<td>指定当前页面是否可以作为另一个JSP页面的错误处理页面</td>
+	</tr>
+	<tr>
+		<td>errorPage</td>
+		<td>指定当前JSP页面发生异常时需要转向的错误处理页面</td>
+	</tr>
+	<tr>
+		<td>buffer</td>
+		<td>定义隐式对象out的缓冲大小，以KB为单位</td>
+	</tr>
+	<tr>
+		<td>autoFlush</td>
+		<td>默认值为true，表示当前输出缓冲满时会自写入输出流。而值为false，表示仅当调用隐式对象的flush方法时，才会写入输出流。因此，若缓冲溢出，则会，抛出异常。</td>
+	</tr>
+	<tr>
+		<td>isELIgnored</td>
+		<td>指定JSP页面是否忽略EL表达式</td>
+	</tr>
+</table>
+</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
